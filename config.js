@@ -2,7 +2,8 @@ const path = require("path");
 
 const SERVER_DIR = __dirname;
 const TMP_DIR = path.join(__dirname, "tmp");
-const FILE_DIR = path.join(__dirname, "public", "files");
+// const FILE_DIR = path.join(__dirname, "public", "files");
+const FILE_DIR = path.join(__dirname);
 
 module.exports = {
   SERVER_DIR,

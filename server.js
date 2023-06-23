@@ -1,7 +1,7 @@
 require("dotenv").config();
 const app = require("./app");
 
-const { PORT } = process.env;
+const { PORT } = process.env || 5500;
 
 const start = async () => {
   try {

@@ -104,7 +104,7 @@ const sleep = (ms) => {
 // };
 
 const getFile = async (req, res) => {
-  const files = "test";
+  const files = await fs.readdir(FILE_DIR);
   return res.json({ status: "Ok", fileList: files, fileDir: FILE_DIR });
 };
 

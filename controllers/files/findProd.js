@@ -7,7 +7,6 @@ const findProd = async (req, res) => {
   const { origin } = newUrl;
 
   setBaseUrl(origin);
-
   try {
     const result = await findProducts(qParams);
 

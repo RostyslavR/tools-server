@@ -87,7 +87,7 @@ const getFile = async (req, res) => {
     jsonData.push({ OldUrl, NewUrl });
 
     if (!(i % 50) && i > 0) {
-      await sleep(150000);
+      await sleep(300000);
     }
   }
 

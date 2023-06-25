@@ -106,7 +106,7 @@ const sleep = (ms) => {
 const getFile = async (req, res) => {
   const fileMask = `**/*_src.xlsx`;
   const mFiles = await glob(fileMask);
-  const fileName = path.basename(mFiles);
+  const fileName = path.basename(mFiles[0]);
   const files = await fs.readdir(FILE_DIR);
   return res.json({
     status: "Ok",

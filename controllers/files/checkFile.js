@@ -96,7 +96,7 @@ const checkFile = async (req, res) => {
     jsonData.push({ OldUrl, NewUrl });
 
     if (!(i % 50) && i > 0) {
-      await sleep(100000);
+      await sleep(200000);
     }
   }
 

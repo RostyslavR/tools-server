@@ -8,9 +8,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.send("Hello . I'm working !");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello . I'm working !");
+// });
 
 app.use("/api/files", router);
 

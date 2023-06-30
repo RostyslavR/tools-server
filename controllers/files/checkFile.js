@@ -36,12 +36,13 @@ const sleep = (ms) => {
 
 const checkFile = async (req, res) => {
   let files = await fs.readdir(FILE_DIR);
-  files.map(async (file) => await fs.unlink(path.join(FILE_DIR, file)));
+  files.forEach(async (file) => await fs.unlink(path.join(FILE_DIR, file)));
 
   let [fExt, fName] = req.file.originalname.split(".").reverse();
   let fileName = `${fName}_src.${fExt}`;
   let filePath = path.join(FILE_DIR, fileName);
   await fs.rename(req.file.path, filePath);
+  // await fs.copyFile(req.file.path, filePath);
 
   const fileMask = `**/*_src.xlsx`;
 

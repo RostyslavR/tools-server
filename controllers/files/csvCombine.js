@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs/promises");
 
-const { dataCSV, writeCSV } = require("../../lib/fileCSV");
+const { headersCSV, dataCSV, writeCSV } = require("../../lib/fileCSV");
 
 const { FILE_DIR } = require("../../config");
 
@@ -56,7 +56,7 @@ const csvCombine = async (req, res) => {
   } = req.body;
 
   const resFilePath = path.join(FILE_DIR, "merge_res.csv");
-  const header = [];
+  let header = [];
   for (let i = 0; i < headers.length; i++) {
     header.push({ id: fields[i], title: headers[i] });
   }
@@ -74,6 +74,12 @@ const csvCombine = async (req, res) => {
   );
 
   await writeCSV(results, header, resFilePath);
+
+  const hs = await headersCSV(resFilePath);
+  header = [];
+  for (let i = 0; i < hs.length; i++) {
+    header.push({ id: hs[i], title: hs[i] });
+  }
 
   if (remEmptyRow === true) {
     let data = await dataCSV(resFilePath);
